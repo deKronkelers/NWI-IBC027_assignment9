@@ -45,11 +45,11 @@ This was done in collaboration with Constantin Blach (s4329872).
 	\paragraph{Time Complexity}
 
 	\begin{itemize}
-		\item At each position we visit we make a maximum of $m$ steps to the right and $n$ steps below: $O(mn)$
-		\item We visit $m * n * \log mn$ positions.
+		\item At each position we visit we make a maximum of $C$ steps, beginning to the right, and a maximum of $C$ step beginning below: $O(2C) = O(C)$.
+		\item We visit $m * n * 2C$ positions: $O(mn2C) = O(mnC)$.
 	\end{itemize}
 
-	The total time complexity is $O(m^2 n^2 \log mn)$. It could drastically improved by dynamic programming as we see below.
+	The total time complexity is $O(mnC^2)$. It could drastically improved by dynamic programming as we see below.
 
 	\item %b
 \end{enumerate}
