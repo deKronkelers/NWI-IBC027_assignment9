@@ -40,12 +40,12 @@ This was done in collaboration with Constantin Blach (s4329872).
 
 	\paragraph{Correctness}
 
-	By taking both a step to the right and a step below at each position, we exhaustively try all possible paths to $M[m][n]$ so we are guaranteed to find the correct solution by summing all paths we find together.
+	By taking both a step to the right and a step down at each position, we exhaustively try all possible paths to $M[m][n]$ so we are guaranteed to find the correct solution by summing all paths we find together.
 
 	\paragraph{Time Complexity}
 
 	\begin{itemize}
-		\item At each position we visit we make a maximum of $C$ steps, beginning to the right, and a maximum of $C$ step beginning below: $O(2C) = O(C)$.
+		\item At each position we visit we make a maximum of $C$ steps, beginning to the right, and a maximum of $C$ step beginning down: $O(2C) = O(C)$.
 		\item We visit $m * n * 2C$ positions: $O(mn2C) = O(mnC)$.
 	\end{itemize}
 
