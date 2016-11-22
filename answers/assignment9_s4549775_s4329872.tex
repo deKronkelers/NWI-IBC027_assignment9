@@ -21,6 +21,24 @@
 This was done in collaboration with Constantin Blach (s4329872).
 
 \section{} %1
+We came up with the following algorithm:
+
+\begin{enumerate}
+	\item Split the highway into sections $S = \{s_1, \dots, s_m\}$ where the last stop in $s_i$ is at least $k$ kilometers apart from the first stop in $s_{i + 1}$.
+	\item For each of those sections calculate the optimal expected profit of that section.
+	\label{sc1:solution_per_section}
+	\item Sum solutions for all sections.
+\end{enumerate}
+
+You can find the optimum of each solution at step \ref{sc1:solution_per_section} by recursively trying how much you earn with and without this stop at any stop you visit, then returning the maximum you can get. You start this at the fist node of each section and get
+
+\paragraph{Correctness}
+All stops in one section $s_i$ are at least $k$ kilometers apart from any stop $s_j, s_k, j < i, i < k$. Thus all sections are independent of each other and can be computed separately as they cannot interfere with each other
+
+\paragraph{Time Complexity}
+The worst case is that the highway cannot be split into separate sections because all consecutive stops are less than $k$ kilometers apart. In this case we can visualize the nodes we visit at a tree. The left child of each node is the next stop in order, the child to its right is the next stop at least $k$ kilometers away.
+
+We always take the full path to the left which has a depth of $O(\log n)$ and we have a maximum of $O(n)$ of these "left-paths". The time complexity is therefore $O(n \log n)$.
 
 \section{} %2
 \begin{enumerate}[a]
