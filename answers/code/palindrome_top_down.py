@@ -8,12 +8,16 @@ def longest_palindrome(word: str, i: int, j: int) -> int:
     longest_palindromes = [1]
     while left < right:
         if word[left] == word[right]:
-            longest_palindromes.append(2 + longest_palindrome(word, left + 1, right - 1))
+            longest_palindromes.append(
+                    2 + longest_palindrome(word, left + 1, right - 1)
+            )
         right -= 1
     right = j
     while left < right:
         if word[left] == word[right]:
-            longest_palindromes.append(2 + longest_palindrome(word, left + 1, right - 1))
+            longest_palindromes.append(
+                    2 + longest_palindrome(word, left + 1, right - 1)
+            )
         left += 1
     return max(longest_palindromes)
 
