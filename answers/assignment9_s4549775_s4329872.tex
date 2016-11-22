@@ -25,6 +25,32 @@ This was done in collaboration with Constantin Blach (s4329872).
 \section{} %2
 \begin{enumerate}[a]
 	\item %a
+	We came up with the following algorithm which I implemented in Groovy:
+
+	\lstinputlisting{code/findCPathsRecursive.groovy}
+
+	It can be used like this
+
+	\begin{lstlisting}
+	int[][] matrix = [[1, 2, 3], [4, 6, 5], [3, 2, 1]]
+	println findCPaths(matrix, 12, 2, 2)
+	\end{lstlisting}
+
+	which produces the correct result $2$.
+
+	\paragraph{Correctness}
+
+	By taking both a step to the right and a step below at each position, we exhaustively try all possible paths to $M[m][n]$ so we are guaranteed to find the correct solution by summing all paths we find together.
+
+	\paragraph{Time Complexity}
+
+	\begin{itemize}
+		\item At each position we visit we make a maximum of $m$ steps to the right and $n$ steps below: $O(mn)$
+		\item We visit $m * n * \log mn$ positions.
+	\end{itemize}
+
+	The total time complexity is $O(m^2 n^2 \log mn)$. It could drastically improved by dynamic programming as we see below.
+
 	\item %b
 \end{enumerate}
 
