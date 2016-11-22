@@ -52,6 +52,18 @@ This was done in collaboration with Constantin Blach (s4329872).
 	The total time complexity is $O(mnC^2)$. It could drastically improved by dynamic programming as we see below.
 
 	\item %b
+	(We did not quite understand this part: "The algorithm should rely on the bottom-up computation of P [i, j, k] in a". What a? Where is a defined? We just found a bottom up algorithm with the correct time complexity.)
+
+	The number of C-paths from $M[0][0]$ to $M[m][n]$ can be computed bottom up by traversing $M$ from top left to bottom right until you reach $M[m][n]$. At each $M[i][j]$ set $V[i][j]$ to the union of $V[i - 1][j]$ with $V[i][j + 1]$ and add the current value to all elements of $V[i][j]$. For every $v \in V[i][j], v = C$ increment $P[i][j][C]$.
+
+	\paragraph{Correctness}
+
+	We can only go right or down so at position $i, j$ we could have only come from $i - 1, j$ or $i, j - 1$. $V[i][j]$ contains all values you could possibly have when you reach point $M[i][j]$. If the values match $C$ then they represent C-paths.
+
+	\paragraph{Time Complexity}
+
+	We visit $mn$ nodes and do a maximum of $C$ word at each (taking union of two lists and adding to each), which means that the total time complexity is $O(mnC)$.
+
 \end{enumerate}
 
 \section{} %3
