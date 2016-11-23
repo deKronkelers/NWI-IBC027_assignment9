@@ -24,6 +24,3 @@ int findCPaths(
     findCPaths(matrix, c, m, n, x + 1, y, currentValue) +
             findCPaths(matrix, c, n, n, x, y + 1, currentValue)
 }
-
-int[][] matrix = [[1, 2, 3], [4, 6, 5], [3, 2, 1]]
-println findCPaths(matrix, 12, 2, 2)
